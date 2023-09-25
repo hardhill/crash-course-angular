@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input class="w-full border px-4 py-2 mb-2" type="text" formControlName="title" placeholder="Product name">
+  <div class="text-red-800 text-sm" *ngIf="(titleError.errors?.minlength || titleError.errors?.required) && titleError.touched">Please input min 3 symbols</div>
+  <button type="submit" class="bg-blue-600 text-white px-4 py-2" [disabled]="!form.valid">
+    Create
+  </button>
+</form>
