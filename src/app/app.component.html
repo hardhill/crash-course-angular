@@ -4,7 +4,11 @@
   <input class="mb-2 border py-2 px-4 w-full" placeholder="Filter product..." [(ngModel)]="textSearch">
 
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
-  <div *ngIf="products$ | async as products">
-    <app-product *ngFor="let product of products | filterProducts:textSearch; let i = index" [product]="product"></app-product>
+  <div *ngIf="productsService.products">
+    <app-product *ngFor="let product of productsService.products | filterProducts:textSearch; let i = index" [product]="product"></app-product>
   </div>
+  <app-modal *ngIf="modalService.isVisible$ | async " title="Create product">
+    <app-create-product/>
+  </app-modal>
+  <button class="rounded-full px-4 py-2 bg-blue-800 text-white fixed bottom-6 right-6" (click)="modalService.open()">+</button>
 </div>

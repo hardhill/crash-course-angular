@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IProduct} from "./models/product";
 import {ProductsService} from "./services/products.service";
-import {Observable, tap} from "rxjs";
+import {ModalService} from "./services/modal.service";
 
 @Component({
   selector: 'app-root',
@@ -10,19 +9,19 @@ import {Observable, tap} from "rxjs";
 })
 export class AppComponent implements OnInit{
   title = 'application course';
-  products$:Observable<IProduct[]>
+
   loading = false
   textSearch: string = '';
 
-  constructor(private productsService:ProductsService) {
+  constructor(public productsService:ProductsService, public modalService:ModalService) {
   }
   ngOnInit(): void {
     this.loading = true
-    this.products$ = this.productsService.getAll().pipe(
-      tap(()=>{
-        this.loading = false
-      })
-    )
+    this.productsService.getAll().subscribe(()=>{
+      this.loading = false
+    })
+
+
 
   }
 }
