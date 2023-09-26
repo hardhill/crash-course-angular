@@ -10,6 +10,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
+import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { NavigateComponent } from './components/navigate/navigate.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { CreateProductComponent } from './components/create-product/create-produ
     GlobalErrorComponent,
     FilterProductsPipe,
     ModalComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductsPageComponent,
+    AboutPageComponent,
+    NavigateComponent
   ],
   imports: [
     BrowserModule,
